@@ -4,3 +4,33 @@
     box-sizing: border-box;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+header {
+    text-align: center;
+    padding: 7px;
+    background-color: skyblue;
+    margin: 0;
+}
+
+input {
+    width: 100%;
+}
+
+#city-date-icon,
+#currentWeatherIcon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between/center/space-around;
+}
+
+#forecast-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between/center;
+    width: 100%;
+}
+
+.forecast {
+    margin: 15px;
+
+}
