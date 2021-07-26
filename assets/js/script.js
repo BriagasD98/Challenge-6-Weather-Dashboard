@@ -1,13 +1,21 @@
-var button = document.querySelector(".button")
-var inputValue = document.querySelector(".inputValue")
-var name = document.querySelector(".name");
-var desc = document.querySelector(".desc");
-var temp = document.querySelector(".temp");
+var apiKey = "3c5fedbc6d20b5cf5be7e03e1022c6ba";
+function createCityList(citySearchList) {
+    $("#city-list").empty();
 
-button.addEventListener('click', function(){
- fetch('https://api.openweathermap.org/data/2.5/onecall?q='+inputValue.value+'&appid=3c5fedbc6d20b5cf5be7e03e1022c6ba')
-.then(response => response.jsom())
-.then(data => console.log(data))
+    var keys = Object.keys(citySearchList);
+    for (var i = 0; i < keys.length; i++) {
+        var cityListEntry = $("<button>");
+        cityListEntry.addClass("list-group-item list-group-item-action");
 
-.catch(err => alert("Wrong City Name!"))
-})
+        var splitStr = keys[i].toLowerCase().split(" ");
+        for (var j = 0; j < splitStr.length; j++) {
+            splitStr[j] =
+                splitStr[j].charAt(0).toUpperCase() + splitStr[j].substring(1);
+        }
+        var titleCasedCity = splitStr.join(" ");
+        cityListEntry.text(titleCasedCity);
+
+        $("#city-list").append(cityListEntry);
+    }
+}
+
